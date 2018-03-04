@@ -21,4 +21,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('/dashboard/instructor', 'DashboardController@instructor')->name('dashboard.instructor');
+Route::get('/instructor', 'DashboardController@instructor')->name('dashboard.instructor');
+Route::get('/dashboard/instructor', 'DashboardController@instructorDashboard')->name('dashboard.instructor.dashboard');

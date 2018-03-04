@@ -32,7 +32,6 @@
                         @else
                         <a href="#">Look for some courses!</a>
                         @endif
-                        
                     </div>
                 </div>
             </div>

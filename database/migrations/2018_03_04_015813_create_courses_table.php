@@ -19,6 +19,7 @@ class CreateCoursesTable extends Migration
             $table->text('description');
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');
+            $table->integer('students')->default(0);
 #            $table->integer('language')->unsigned();
 #            $table->foreign('language')->references('id')->on('users');
             $table->decimal('price', 6, 2)->nullable();

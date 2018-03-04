@@ -49,6 +49,8 @@
                                     @if(Auth::user()->instructor==0)
                                     <!--  {{Auth::user()->instructor}}-->                                        
                                     <a class="dropdown-item darker-item" href="{{ route('dashboard.instructor') }}">Become an Instructor</a>
+                                    @else
+                                    <a class="dropdown-item" href="{{ route('dashboard.instructor.dashboard') }}">Instructor Dashboard</a>                                    
                                     @endif
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
