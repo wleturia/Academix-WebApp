@@ -43,13 +43,19 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    
+
+                                    <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>                                    
+                                    @if(Auth::user()->instructor==0)
+                                    <!--  {{Auth::user()->instructor}}-->                                        
+                                    <a class="dropdown-item darker-item" href="{{ route('dashboard.instructor') }}">Become an Instructor</a>
+                                    @endif
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
-                                    <a href="{{ route('logout') }}">Become an Instructor</a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

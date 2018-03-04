@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Welcome</div>
+                <div class="card-header">Welcome Instructor!</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,11 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
-                    @if(Auth::user()->instructor==0)
-                    <a class="" href="{{ route('dashboard.instructor') }}">Become an Instructor</a>
-                    @endif
+                    <p>Thanks for become an Instructor!</p>
+                    <a class="" href="{{ route('dashboard') }}">Go to Dashboard!</a>
+                    
                 </div>
             </div>
         </div>
