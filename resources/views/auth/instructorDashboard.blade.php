@@ -8,7 +8,7 @@
                 <div class="card-header">Welcome Instructor {{Auth::user()->name}}!</div>
 
                 <div class="card-body">
-            
+                        
                         @if(!$courses->isEmpty())
                         <h4 class="courses-title">Instructor Courses <a href="#" class="float-right small">Create a New One</a></h4>
 
@@ -24,7 +24,15 @@
                             @endforeach
                         @else
                         <a href="#">Look for some courses!</a>
-                        @endif                    
+                        @endif       
+                        <div class="col-md-12">
+                            <div class="row justify-content-center">
+                                {{ $courses->links() }}
+                            </div> 
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
