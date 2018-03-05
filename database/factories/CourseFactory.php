@@ -8,13 +8,12 @@ use App\User;
 
 $factory->define(App\Course::class, function (Faker $faker) {
     return [
-        'name' => $faker->word,
+        'name' => $faker->unique()->sentence($nbWords = 6, $variableNbWords = true) ,
         'description' => $faker->paragraph,
         'author_id' => function(){
             return User::all()->random();
         },
         'students' => $faker->numberBetween(100,1000),
-        'progress' => $faker->numberBetween(0,100),
         'price' => $faker->numberBetween(100,1000),
         //
     ];

@@ -18,6 +18,7 @@ class CreateUsersCoursesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->integer('progress')->default(0);            
             $table->integer('star')->nullable()->nullable();
             $table->text('review')->nullable()->nullable();
             $table->timestamps();

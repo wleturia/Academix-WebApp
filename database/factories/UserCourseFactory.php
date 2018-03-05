@@ -14,6 +14,7 @@ $factory->define(App\UserCourse::class, function (Faker $faker) {
         'course_id' => function(){
             return Course::all()->random();
         },
+        'progress' => $faker->numberBetween(0,100),        
         'star' => $faker->numberBetween(0,5),
         'review' => $faker->paragraph
         ];

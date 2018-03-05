@@ -24,6 +24,10 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/instructor', 'DashboardController@instructor')->name('dashboard.instructor');
 Route::get('/dashboard/instructor', 'DashboardController@instructorDashboard')->name('dashboard.instructor.dashboard');
 
+Route::get('/courses/categories/{category}','CourseController@index')->name('courses');
+Route::get('/courses/{course}', 'CourseController@show');
+
+
 Route::get('dashboard/instructor/course/{course}', function ($course) {
     //
 });

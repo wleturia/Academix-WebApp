@@ -15,12 +15,11 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description');
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');
             $table->integer('students')->default(0);
-            $table->integer('progress')->default(0);
 #            $table->integer('language')->unsigned();
 #            $table->foreign('language')->references('id')->on('users');
             $table->decimal('price', 6, 2)->nullable();
