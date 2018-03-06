@@ -23,7 +23,7 @@
                                     <h5 class="card-title">{{$data->name}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{$data->author}}</h6>
                                     <p class="card-text">{{$data->description}}.</p>
-                                    <p class="float-right italic">Progress: {{$data->name}}%</p>
+                                    <p class="float-right italic">Progress: {{$data->progress}}%</p>
                                     <?php $url = str_slug($data->name, "-"); ?>
                                     <a href="#" class="card-link">Resume Learning</a>
                                     <a href="/courses/{{ str_slug($data->name, "-") }}" class="card-link">Go to Course Dashboard</a>

@@ -17,26 +17,40 @@ class DashboardController extends Controller
     public function index()
     { 
         #$id = Auth::user()->id;
-        
-        $courses = DB::table('courses')
-        ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','user_courses.progress')
-        ->join('user_courses', 'courses.id', '=', 'user_courses.course_id')
-        ->where('user_courses.user_id', '=', Auth::user()->id)
-        ->paginate(3);
-        return view('Auth/dashboard')->with('courses',$courses);  
+        if(Auth::guest())
+        {
+            return view('Auth/courses');
+        }else{
+            $courses = DB::table('courses')
+            ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','user_courses.progress')
+            ->join('user_courses', 'courses.id', '=', 'user_courses.course_id')
+            ->where('user_courses.user_id', '=', Auth::user()->id)
+            ->paginate(3);
+            return view('Auth/dashboard')->with('courses',$courses);  
+        }
     }
 
     public function instructor(){
-        if(Auth::user()->instructor==0){DB::table('users')->where('id', Auth::user()->id)->update(['instructor' => 1]);}
-        return view('Auth/instructor');
+        if(Auth::guest())
+        {
+            return view('Auth/login')->with('courses',$courses);              
+        }else{
+            if(Auth::user()->instructor==0){DB::table('users')->where('id', Auth::user()->id)->update(['instructor' => 1]);}
+            return view('Auth/instructor');
+        }
     }
 
     public function instructorDashboard(){
         #SELECT courses.name, courses.description, courses.students FROM courses WHERE courses.author_id = 2
-        $courses = DB::table('courses')
-        ->where('courses.author_id', '=', Auth::user()->id)
-        ->paginate(3);
-        return view('Auth/instructorDashboard')->with('courses', $courses);
+        if(Auth::guest())
+        {
+            return view('Auth/login')->with('courses',$courses);              
+        }else{
+            $courses = DB::table('courses')
+            ->where('courses.author_id', '=', Auth::user()->id)
+            ->paginate(3);
+            return view('Auth/instructorDashboard')->with('courses', $courses);
+    }
     }
     /**
      * Show the form for creating a new resource.

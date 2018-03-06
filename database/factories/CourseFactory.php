@@ -8,7 +8,8 @@ use App\User;
 
 $factory->define(App\Course::class, function (Faker $faker) {
     return [
-        'name' => $faker->unique()->sentence($nbWords = 6, $variableNbWords = true) ,
+        #'name' => $faker->unique()->sentence($nbWords = 6, $variableNbWords = true) ,
+        'name' => $faker->unique()->catchPhrase,
         'description' => $faker->paragraph,
         'author_id' => function(){
             return User::all()->random();
