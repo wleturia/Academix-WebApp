@@ -40,6 +40,7 @@ class CourseController extends Controller
         if(Auth::guest()){
             $course;
             return view('Auth/login');                          
+            
         }else{
             
         }
