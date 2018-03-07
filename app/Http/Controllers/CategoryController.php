@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,35 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $courseDetail = DB::table('courses')
+        ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.students','courses.url')
+        ->paginate(3);
+        $data['courses'] = [
+            'coursesQuery' => $courseDetail
+        ];
+        #return $data['courses']['coursesQuery']; 
+        #return $data;
+        return view('exploreCourses')->with('courses',$data);
+    }
+    
+    public function category(){
+        if($category=='all'){
+            
+        }else{
+            $courseDetail = DB::table('courses')
+            ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.students','courses.url')
+            ->join('categories','courses.category_id', '=', 'cateogries.id')      
+            ->where('category.name','=',$category)
+            ->paginate(3);
+            $courses = false;
+            return view('exploreCourses')->with('courses',$courses);
+        }
+        
+        $data = [
+            'category' => $category
+        ];       
+        return view('exploreCourses')->with('data',$data);
+        
     }
 
     /**

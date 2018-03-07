@@ -48,17 +48,4 @@ class CourseController extends Controller
         }
     }
 
-    public function explore($category){
-        if($category=='all'){
-            #SELECT * FROM `courses` ORDER BY `students` DESC
-            $courseDetail = DB::table('courses')
-            ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.students','courses.url')
-            ->paginate(3);
-            return view('exploreCourses')->with('courses',$courseDetail);
-        }
-        $data = [
-            'category' => $category
-        ];       
-        return view('exploreCourses')->with('data',$data);
-    }
 }
