@@ -8,7 +8,7 @@ class Course extends Model
 {
     //
     protected $fillable = [
-        'name', 'description', 'author_id','price',
+        'name','url', 'description', 'author_id','price',
     ];
 
     public function users() 

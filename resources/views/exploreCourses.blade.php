@@ -7,23 +7,16 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                     <div class="card-body">
-                        <!-- 
-
-                            @if(Auth::user()->instructor==0)
-                            <a href="{{action('DashboardController@instructor')}}">Become an Instructor</a> 
-                            @endif
-                            <p>Welcome @if(Auth::user()->instructor==0) Student @else Instructor @endif{{Auth::user()->name}}</p>
-                        -->
                         @if(!$courses->isEmpty())
                         <h4 class="courses-title">My Courses <a href="/courses/category/{{'all'}}" class="float-right small">Explore More Courses</a></h4>
+
                             @foreach($courses as $key => $data)
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$data->name}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{$data->author}}</h6>
                                     <p class="card-text">{{$data->description}}.</p>
-                                    <p class="float-right italic">Progress: {{$data->progress}}%</p>
-                                    <a href="#" class="card-link">Resume Learning</a>
+                                    <p class="float-right italic">Students: {{$data->students}}</p>
                                     <a href="/courses/{{ $data->url }}" class="card-link">Go to Course Dashboard</a>
                                 </div>
                             </div>

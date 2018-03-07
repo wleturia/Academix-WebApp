@@ -14,16 +14,20 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
+            $table->unique('name','url');                       
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('url')->unique();  
             $table->text('description');
             $table->integer('author_id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('users');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('students')->default(0);
-#            $table->integer('language')->unsigned();
-#            $table->foreign('language')->references('id')->on('users');
             $table->decimal('price', 6, 2)->nullable();
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
+            #            $table->integer('language')->unsigned();
+            #            $table->foreign('language')->references('id')->on('users');
         });
     }
 

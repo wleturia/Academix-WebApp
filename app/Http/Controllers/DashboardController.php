@@ -22,7 +22,7 @@ class DashboardController extends Controller
             return view('Auth/courses');
         }else{
             $courses = DB::table('courses')
-            ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','user_courses.progress')
+            ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','user_courses.progress','courses.url')
             ->join('user_courses', 'courses.id', '=', 'user_courses.course_id')
             ->where('user_courses.user_id', '=', Auth::user()->id)
             ->paginate(3);
