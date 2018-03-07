@@ -33,13 +33,13 @@ class CategoryController extends Controller
         $data = $this->mergeData($categories, $coursesCategory);
         return view('exploreCourses')->with('array',$data);      
     }
-    public function callCategories(){
+    private function callCategories(){
         $categories = DB::table('categories')
         ->select('categories.category')
         ->get();
         return $categories;
     }
-    public function mergeData($categories, $courses){
+    private function mergeData($categories, $courses){
         $data['merge'] = [
             'first' => $categories,
             'second' => $courses
