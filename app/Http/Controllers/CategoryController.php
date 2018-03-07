@@ -18,32 +18,33 @@ class CategoryController extends Controller
         $courseDetail = DB::table('courses')
         ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.students','courses.url')
         ->paginate(3);
-        $data['courses'] = [
-            'coursesQuery' => $courseDetail
-        ];
-        #return $data['courses']['coursesQuery']; 
-        #return $data;
-        return view('exploreCourses')->with('courses',$data);
+        $categories = $this->callCategories();
+        $data = $this->mergeData($categories, $coursesCategory);        
+        return view('exploreCourses')->with('array',$data);
     }
     
-    public function category(){
-        if($category=='all'){
-            
-        }else{
-            $courseDetail = DB::table('courses')
-            ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.students','courses.url')
-            ->join('categories','courses.category_id', '=', 'cateogries.id')      
-            ->where('category.name','=',$category)
-            ->paginate(3);
-            $courses = false;
-            return view('exploreCourses')->with('courses',$courses);
-        }
-        
-        $data = [
-            'category' => $category
-        ];       
-        return view('exploreCourses')->with('data',$data);
-        
+    public function category($category){
+        $coursesCategory = DB::table('courses')
+        ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.students','courses.url')
+        ->join('categories','courses.category_id', '=', 'categories.id')      
+        ->where('categories.category','=',$category)
+        ->paginate(3);
+        $categories = $this->callCategories();
+        $data = $this->mergeData($categories, $coursesCategory);
+        return view('exploreCourses')->with('array',$data);      
+    }
+    public function callCategories(){
+        $categories = DB::table('categories')
+        ->select('categories.category')
+        ->get();
+        return $categories;
+    }
+    public function mergeData($categories, $courses){
+        $data['merge'] = [
+            'first' => $categories,
+            'second' => $courses
+        ];
+        return $data;
     }
 
     /**

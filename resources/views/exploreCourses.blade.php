@@ -1,17 +1,17 @@
 @extends('layouts.app') @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        @if ($courses==true)
+        @if ($array==true)
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Categories</div>
                 <div class="card-body">
                     <div class="list-group">
-                        <a href="/courses/category/{{ 'all' }}" class="list-group-item {{ Request::path() == 'all' ? 'active' : '' }}">Cras justo odio</a>
-                        <a href="/courses/category/{{ 'easd' }}" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                        <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                        @if(isset($array['merge']['first']))
+                        @foreach($array['merge']['first'] as $categories => $category)
+                        <a href="/category/{{ $category->category }}" class="list-group-item">{{$category->category}}</a>
+                        @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -20,14 +20,14 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
-                    <?php $collection = $courses['courses']['coursesQuery'];?> @if(isset($courses['courses']['coursesQuery'])) @foreach($courses['courses']['coursesQuery'] as $courses => $data)
+                    <?php $collection = $array['merge']['second'];?> @if(isset($array['merge']['second'])) @foreach($array['merge']['second'] as $array => $data)
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{$data->name}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{$data->author}}</h6>
                             <p class="card-text">{{$data->description}}.</p>
                             <p class="float-right italic">Students: {{$data->students}}</p>
-                            <a href="/courses/{{ $data->url }}" class="card-link">Go to Course Dashboard</a>
+                            <a href="/merge/{{ $data->url }}" class="card-link">Go to Course Dashboard</a>
                         </div>
                     </div>
                     @endforeach

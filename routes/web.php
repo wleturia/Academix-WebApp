@@ -29,7 +29,7 @@ Route::get('/courses/{course}/inscribe', 'CourseController@addCourse')->name('co
 
 #Route::get('/courses/categories/{category}','CourseController@index')->name('courses');
 Route::get('/category', 'CategoryController@index');
-Route::get('/category/{category}', 'CourseController@category');
+Route::get('/category/{category}', 'CategoryController@category');
 
 
 Route::get('dashboard/instructor/course/{course}', function ($course) {
