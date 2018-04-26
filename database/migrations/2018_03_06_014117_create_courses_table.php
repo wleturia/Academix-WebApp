@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
             $table->decimal('price', 6, 2)->nullable();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->binary('image')->nullable(); # <img src="data:image/jpeg;base64,'.base64_encode( $imageBlob ).'"/>
             $table->timestamps();
             #            $table->integer('language')->unsigned();
             #            $table->foreign('language')->references('id')->on('users');
