@@ -8,7 +8,6 @@
                 <div class="card-header">Dashboard</div>
                     <div class="card-body">
                         <!-- 
-
                             @if(Auth::user()->instructor==0)
                             <a href="{{action('DashboardController@instructor')}}">Become an Instructor</a> 
                             @endif
