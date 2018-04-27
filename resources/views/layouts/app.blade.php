@@ -12,8 +12,28 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- SLICK THEME -->
     <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/slick-theme.css') }}" rel="stylesheet">    
+    <link href="{{ asset('css/slick-theme.css') }}" rel="stylesheet">
+
+    
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <style>
+    .dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.dropdown-toggle::after {
+    display:none
+}
+
+    </style>
 </head>
 <body>
     <div id="app">
@@ -40,11 +60,38 @@
                             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="nav-item dropdown">
+                                <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="far fa-heart"></i>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-shopping-cart"></i>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="far fa-bell"></i>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
 
                                     <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>                                    
