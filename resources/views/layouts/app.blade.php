@@ -59,34 +59,39 @@
                             <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item dropdown mx-2">
+                            <a id="courses" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    My Courses
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="courses">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
+                            </div>
+                        </li>
+                            <li class="nav-item dropdown mx-2">
+                                <a id="love" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="far fa-heart"></i>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="love">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li class="nav-item dropdown mx-2">
+                                <a id="cart" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-shopping-cart"></i>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cart">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown mx-2">
                                 <a id="notifications" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="far fa-bell"></i>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown mx-2">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
