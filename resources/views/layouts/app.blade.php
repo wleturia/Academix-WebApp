@@ -134,12 +134,29 @@
 
 .btn-options{
     border-top: 1px solid #ccc;
+    background: #F2F3F5;    
     display: flex;
     justify-content: space-between;
 }
 .btn-option{
     width: 50%;
     border-radius: 0;
+}
+
+.btn-settings{
+    background: rgba(245,248,250,0.6);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(0,105,217,0.6);
+}
+.texto{
+    text-transform: uppercase;
+    color: #0069D9;
+    font-weight: bold;
+}
+.config{
+    color: #0069D9;
+    font-size: 1rem;
 }
     </style>
 </head>
@@ -302,6 +319,14 @@
                                 </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications">
                                 <div class="item-wrapper ">
+                                    <div class="btn-settings p-3 m-0">
+                                        <div class="texto">
+                                            Notifications
+                                        </div>
+                                        <div class="config">
+                                           <a href="">     <i class="fas fa-cog"></i></a>
+                                        </div>
+                                    </div>
                                     <ul class="courses-list">
                                         <li class="dropdown-item p-3">
                                             <a href="">
