@@ -87,8 +87,26 @@
             text-transform: uppercase;
         }
 
-        .course-description {
+
+        .description {
             font-size: .6rem;
+                display: block!important;
+    display: -webkit-box!important;
+    -webkit-line-clamp: 2;
+    -moz-line-clamp: 2;
+    -ms-line-clamp: 2;
+    -o-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    -o-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    color: #686f7a;
+    max-height: 2rem;
         }
 
         .course-price {
@@ -158,6 +176,25 @@
     color: #0069D9;
     font-size: 1rem;
 }
+
+.progress, .progress-bar{
+    height: .3rem;
+}
+
+.courses-div{
+    display: flex;
+    justify-content: flex-end;
+}
+.courses-div .btn-outline-primary{
+    border-radius: 0;
+}
+
+.inline-block{
+    display: inline-block;
+    width: 100%;
+}
+
+p { word-break: break-all!important }
     </style>
 </head>
 
@@ -185,12 +222,67 @@
                         <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
-                        <li class="nav-item dropdown mx-2">
+                        <li class="nav-item dropdown mx-2 courses">
                             <a id="courses" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     My Courses
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="courses">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aperiam ut, iure nemo vel alias nobis ipsum minima aliquam rerum.</p>
+                                <!-- PROGRESS BAR -->
+                                <ul class="courses-list">
+                                        <li class="dropdown-item p-3">
+                                            <a href="" class="inline-block">
+                                                <div class="list-course">
+                                                    <div class="list-course-img">
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                    </div>
+                                                    <div class="list-course-detail mx-2">
+                                                        <p class="course-name">COURSE's NAME</p>
+                                                            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <div class="progress">
+                                                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                              </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <hr>
+                                        <li class="dropdown-item p-3">
+                                            <a href="">
+                                                <div class="list-course">
+                                                    <div class="list-course-img">
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                    </div>
+                                                    <div class="list-course-detail mx-2">
+                                                        <p class="course-name">COURSE's NAME</p>
+                                                        <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <div class="progress">
+                                                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                              </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <hr>
+                                        <li class="dropdown-item p-3">
+                                            <a href="">
+                                                <div class="list-course">
+                                                    <div class="list-course-img">
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                    </div>
+                                                    <div class="list-course-detail mx-2">
+                                                        <p class="course-name">COURSE's NAME</p>
+                                                        <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <div class="progress">
+                                                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                              </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="btn-options p-0 m-0 courses-div">
+                                            <a href="" class="text-right btn btn-outline-primary">SEE ALL</a>
+                                    </div>
                             </div>
                         </li>
                         <li class="nav-item dropdown mx-2">
@@ -208,7 +300,23 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="course-name">COURSE's NAME</p>
-                                                        <p class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                                <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                            <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
+                                                        <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <hr>
+                                        <li class="dropdown-item p-3">
+                                            <a href="">
+                                                <div class="list-course">
+                                                    <div class="list-course-img">
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                    </div>
+                                                    <div class="list-course-detail mx-2">
+                                                        <p class="course-name">COURSE's NAME</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
                                                         <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
                                                     </div>
@@ -224,23 +332,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="course-name">COURSE's NAME</p>
-                                                        <p class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
-                                                        <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <hr>
-                                        <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
                                                         <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
                                                     </div>
@@ -269,7 +361,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="course-name">COURSE's NAME</p>
-                                                        <p class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
                                                     </div>
                                                 </div>
@@ -284,7 +376,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="course-name">COURSE's NAME</p>
-                                                        <p class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
                                                     </div>
                                                 </div>
@@ -299,7 +391,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="course-name">COURSE's NAME</p>
-                                                        <p class="course-description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
                                                     </div>
                                                 </div>
@@ -336,7 +428,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="professor-name">PROFESOR</p>
-                                                        <p class="professor-message">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="message-time m-1">10 minutes ago</p>
                                                     </div>
                                                 </div>
@@ -351,7 +443,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="professor-name">PROFESOR</p>
-                                                        <p class="professor-message">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="message-time m-1">10 minutes ago</p>
                                                     </div>
                                                 </div>
@@ -366,7 +458,7 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="professor-name">PROFESOR</p>
-                                                        <p class="professor-message">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
                                                         <p class="message-time m-1">10 minutes ago</p>
                                                     </div>
                                                 </div>
@@ -389,11 +481,13 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
 
+                                <a class="dropdown-item" href="{{ route('home') }}">Home</a> @if(Auth::user()->instructor==0)
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a> @if(Auth::user()->instructor==0)
                                 <!--  {{Auth::user()->instructor}}-->
                                 <a class="dropdown-item darker-item" href="{{ route('dashboard.instructor') }}">Become an Instructor</a> @else
                                 <a class="dropdown-item" href="{{ route('dashboard.instructor.dashboard') }}">Instructor Dashboard</a> @endif
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('dashboard.instructor.dashboard') }}">Settings</a> @endif                                
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Logout
