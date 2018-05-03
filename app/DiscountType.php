@@ -4,17 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserCourseStatus extends Model
+class DiscountType extends Model
 {
     protected $fillable = [
-        'id', 'status',
+        'id','type',
     ];
+
     protected $hidden = [
         'description',
     ];
-    
-    public function UserCourse() 
+
+    public function CourseDiscount() 
     {
-        return $this->belongsToMany('UserCourse')->withTimestamps();
+        return $this->belongsToMany('CourseDiscount')->withTimestamps();
     }
+
 }
