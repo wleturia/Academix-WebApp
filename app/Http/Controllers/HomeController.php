@@ -25,8 +25,14 @@ class HomeController extends Controller
     public function index()
     {
         $categories = $this->callCategories(3);
-        $places = $this->callPlaces($categories, 10);
-        return view('home')->with('places',$places);
+        $courses = $this->callPlaces($categories, 10);
+        #array_push($places, ['hola','hola']);        
+        #return dd($places);
+        return view('home')->with('courses',$courses);
+    }
+
+    private function loadCourses($courseList){
+        array_push($courseList, $list);
     }
 
     private function callCategories($number){
@@ -52,9 +58,9 @@ class HomeController extends Controller
     }
 
     private function mergeData($categories, $courses){
-        $data['merge'] = [
-            'first' => $categories,
-            'second' => $courses
+        $data['carrousel'] = [
+            'category' => $categories,
+            'course' => $courses
         ];
         return $data;
     }

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class UserCourse extends Model
 {
     protected $fillable = [
-        'user_id', 'course_id',
+        'user_id', 'course_id','status_id',
     ];
 
     protected $hidden = [
-        'star', 'review',
+        'star', 'review','progress',
     ];
 }
