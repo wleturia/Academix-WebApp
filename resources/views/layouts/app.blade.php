@@ -237,60 +237,51 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="courses">
                                 <!-- PROGRESS BAR -->
                                 <ul class="courses-list">
-                                    <li class="dropdown-item p-3">
-                                        <a href="" class="inline-block">
-                                            <div class="list-course">
-                                                <div class="list-course-img">
-                                                    <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                </div>
-                                                <div class="list-course-detail mx-2">
-                                                    <p class="course-name">COURSE's NAME</p>
-                                                    <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                        @foreach ($courses as $coursesList) 
+                                        @if(isset($coursesList["current"])) 
+                                        @foreach($coursesList as $current) @foreach($current as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
+                                        <!--  -->
+                                        <li class="dropdown-item p-3">
+                                            <a href="route/{{$course->url}}">
+                                                <div class="list-course">
+                                                    <div class="list-course-img">
+                                                        @if(!$course->image==null)
+                                                        <img class="mx-auto d-block" src="{{$course->image}}" alt="" width="50" height="50"> @else
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50"> @endif
+                                                    </div>
+                                                    <div class="list-course-detail mx-2">
+                                                        <p class="course-name">{{$course->name}}</p>
+                                                    <p class="description ">{{$course->description}}</p>
                                                     <div class="progress">
-                                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar" style="width:{{$course->progress}}%"></div>
+                                                          </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr>
-                                    <li class="dropdown-item p-3">
-                                        <a href="">
-                                            <div class="list-course">
-                                                <div class="list-course-img">
-                                                    <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                </div>
-                                                <div class="list-course-detail mx-2">
-                                                    <p class="course-name">COURSE's NAME</p>
-                                                    <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                    <div class="progress">
-                                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr>
-                                    <li class="dropdown-item p-3">
-                                        <a href="">
-                                            <div class="list-course">
-                                                <div class="list-course-img">
-                                                    <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                </div>
-                                                <div class="list-course-detail mx-2">
-                                                    <p class="course-name">COURSE's NAME</p>
-                                                    <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                    <div class="progress">
-                                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
+                                            </a>
+                                        </li>
+                                        <hr>
+                                        @endforeach 
+                                        @else
+                                        <li class="dropdown-item p-3">
+                                            <?php $haventCurrent = true; ?>
+                                            <p class="text-center">You don't have faved courses yet</p>
+                                        </li>
+                                        @endif @endforeach @endforeach 
+                                        @endif @endforeach
+                                    </ul>
+
+                                @if(!isset($haventCurrent))
                                 <div class="btn-options p-0 m-0 courses-div">
-                                    <a href="" class="text-right btn btn-outline-primary">SEE ALL</a>
-                                </div>
+                                        <a href="" class="text-right btn btn-outline-primary">SEE ALL</a>
+                                    </div>
+                                @else
+                                <div class="btn-wrapper p-3 m-0">
+                                        <a href="" class="btn btn-primary btn-wish-list">EXPLORE COURSES</a>
+                                    </div>
+                                @endif
+
+
+                              
                             </div>
                         </li>
                         <li class="nav-item dropdown mx-2">
@@ -300,7 +291,9 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="love">
                                 <div class="item-wrapper ">
                                     <ul class="courses-list">
-                                        @foreach ($courses as $coursesList) @if(isset($coursesList["faved"])) @foreach($coursesList as $faved) @foreach($faved as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
+                                        @foreach ($courses as $coursesList) 
+                                        @if(isset($coursesList["faved"])) 
+                                        @foreach($coursesList as $faved) @foreach($faved as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
                                         <!--  -->
                                         <li class="dropdown-item p-3">
                                             <a href="route/{{$course->url}}">
@@ -328,14 +321,16 @@
                                             </a>
                                         </li>
                                         <hr>
-                                        @endforeach @else
+                                        @endforeach 
+                                        @else
                                         <li class="dropdown-item p-3">
-                                            <?php $havent = true; ?>
+                                            <?php $haventFaved = true; ?>
                                             <p class="text-center">You don't have faved courses yet</p>
                                         </li>
-                                        @endif @endforeach @endforeach @endif @endforeach
+                                        @endif @endforeach @endforeach 
+                                        @endif @endforeach
                                     </ul>
-                                    @if(!isset($havent))
+                                    @if(!isset($haventFaved))
                                     <div class="btn-wrapper p-3 m-0">
                                         <a href="" class="btn btn-primary btn-wish-list">GO TO WISH LIST</a>
                                     </div>
@@ -354,55 +349,54 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cart">
                                 <div class="item-wrapper ">
                                     <ul class="courses-list">
+                                        @foreach ($courses as $coursesList) 
+                                        @if(isset($coursesList["cart"])) 
+                                        @foreach($coursesList as $cart) @foreach($cart as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
+                                        <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="">
+                                            <a href="route/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                        @if(!$course->image==null)
+                                                        <img class="mx-auto d-block" src="{{$course->image}}" alt="" width="50" height="50"> @else
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50"> @endif
                                                     </div>
                                                     <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
+                                                        <p class="course-name">{{$course->name}}</p>
+                                                        <p class="course-name">{{$course->totalPrice}}</p>
+                                                    <p class="description ">{{$course->description}}</p>
+                                                        @if(!$course->discount->isEmpty())
+                                                        @foreach($course->discount as $discount)
+                                                        <!-- Add method to create new types of discounts -->
+                                                        <p class="course-price m-1">${{$discount->discount}} <span class="course-discount">${{$discount->price}}</span></p>
+                                                        @endforeach
+                                                        @else
+                                                        <p class="course-price m-1">${{$discount->price}}</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </a>
                                         </li>
                                         <hr>
+                                        @endforeach 
+                                        @else
                                         <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                            <?php $haventCart = true; ?>
+                                            <p class="text-center">You don't have cart courses yet</p>
                                         </li>
-                                        <hr>
-                                        <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        @endif @endforeach @endforeach 
+                                        @endif @endforeach
                                     </ul>
+                                    @if(!isset($haventCart))
                                     <div class="btn-wrapper p-3 m-0">
                                         <p class="course-price p-1 text-center">TOTAL PRICE: $30.99 <span class="course-discount">$300.00</span></p>
                                         <a href="" class="btn btn-primary btn-wish-list">GO TO CART</a>
                                     </div>
+                                    @else
+                                    <div class="btn-wrapper p-3 m-0">
+                                        <a href="" class="btn btn-primary btn-wish-list">EXPLORE COURSES</a>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </li>
