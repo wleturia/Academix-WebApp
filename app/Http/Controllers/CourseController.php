@@ -8,11 +8,11 @@ use DB;
 
 class CourseController extends Controller
 {
-    public function show($course){
+    public function show($courseURL){
         #$url = str_slug($course, "-");
         #$text = ucwords(str_replace('-', ' ', $course));
         #return $text;
-        $url = filter_var($course, FILTER_SANITIZE_URL);
+        $url = filter_var($courseURL, FILTER_SANITIZE_URL);
         if(Auth::guest())
         {
             $courseDetail = DB::table('courses')

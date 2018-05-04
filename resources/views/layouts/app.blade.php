@@ -242,7 +242,7 @@
                                         @foreach($coursesList as $current) @foreach($current as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
                                         <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="route/{{$course->url}}">
+                                            <a href="{{ route('showCourse', ['course' => $course->url, 'courses'=>$courses]) }}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
                                                         @if(!$course->image==null)
@@ -296,7 +296,7 @@
                                         @foreach($coursesList as $faved) @foreach($faved as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
                                         <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="route/{{$course->url}}">
+                                            <a href="courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
                                                         @if(!$course->image==null)
@@ -344,11 +344,13 @@
                         </li>
                         <li class="nav-item dropdown mx-2">
                             <a id="cart" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-shopping-cart"></i>
-                                </a>
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cart">
                                 <div class="item-wrapper ">
                                     <ul class="courses-list">
+                                        <?php $totalPrice = 0; ?>
+                                        <?php $totalDiscount = 0; ?>
                                         @foreach ($courses as $coursesList) 
                                         @if(isset($coursesList["cart"])) 
                                         @foreach($coursesList as $cart) @foreach($cart as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
@@ -363,37 +365,40 @@
                                                     </div>
                                                     <div class="list-course-detail mx-2">
                                                         <p class="course-name">{{$course->name}}</p>
-                                                        <p class="course-name">{{$course->totalPrice}}</p>
                                                     <p class="description ">{{$course->description}}</p>
-                                                        @if(!$course->discount->isEmpty())
-                                                        @foreach($course->discount as $discount)
-                                                        <!-- Add method to create new types of discounts -->
-                                                        <p class="course-price m-1">${{$discount->discount}} <span class="course-discount">${{$discount->price}}</span></p>
-                                                        @endforeach
-                                                        @else
-                                                        <p class="course-price m-1">${{$discount->price}}</p>
-                                                        @endif
+                                                    @if(!$course->discount->isEmpty())
+                                                    @foreach($course->discount as $discount)
+                                                    <!-- Add method to create new types of discounts -->
+                                                    <p class="course-price m-1">${{$discount->discount}} <span class="course-discount">${{$discount->price}}</span></p>
+                                                            <?php $totalPrice = $totalPrice + $discount->discount; ?>                                                                                                                    
+                                                            <?php $totalDiscount = $totalDiscount + $discount->price; ?>                                                                                                                    
+                                                            @endforeach
+                                                            @else
+                                                            <p class="course-price m-1">${{$discount->price}}</p>
+                                                            <?php $totalPrice = $totalPrice + $discount->price; ?>                                             
+                                                            <?php $totalDiscount = $totalDiscount + $discount->price; ?>                                                                                                                                                                                           
+                                                            @endif
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <hr>
-                                        @endforeach 
+                                                </a>
+                                            </li>
+                                            <hr>
+                                            @endforeach 
+                                            @else
+                                            <li class="dropdown-item p-3">
+                                                <?php $haventCart = true; ?>
+                                                <p class="text-center">You don't have cart courses yet</p>
+                                            </li>
+                                            @endif @endforeach @endforeach 
+                                            @endif @endforeach
+                                        </ul>
+                                        @if(!isset($haventCart))
+                                        <div class="btn-wrapper p-3 m-0">
+                                            <p class="course-price p-1 text-center">TOTAL PRICE: ${{$totalPrice}} <span class="course-discount">${{$totalDiscount}}</span></p>
+                                            <a href="" class="btn btn-primary btn-wish-list">GO TO CART</a>
+                                        </div>
                                         @else
-                                        <li class="dropdown-item p-3">
-                                            <?php $haventCart = true; ?>
-                                            <p class="text-center">You don't have cart courses yet</p>
-                                        </li>
-                                        @endif @endforeach @endforeach 
-                                        @endif @endforeach
-                                    </ul>
-                                    @if(!isset($haventCart))
-                                    <div class="btn-wrapper p-3 m-0">
-                                        <p class="course-price p-1 text-center">TOTAL PRICE: $30.99 <span class="course-discount">$300.00</span></p>
-                                        <a href="" class="btn btn-primary btn-wish-list">GO TO CART</a>
-                                    </div>
-                                    @else
-                                    <div class="btn-wrapper p-3 m-0">
+                                        <div class="btn-wrapper p-3 m-0">
                                         <a href="" class="btn btn-primary btn-wish-list">EXPLORE COURSES</a>
                                     </div>
                                     @endif

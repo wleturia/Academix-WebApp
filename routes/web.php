@@ -24,7 +24,8 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/instructor', 'DashboardController@instructor')->name('dashboard.instructor');
 Route::get('/dashboard/instructor', 'DashboardController@instructorDashboard')->name('dashboard.instructor.dashboard');
 
-Route::get('/courses/{course}', 'CourseController@show');
+Route::get('/courses/{course}', 'CourseController@show')->name('showCourse');
+
 Route::get('/courses/{course}/inscribe', 'CourseController@addCourse')->name('courseRegister');
 
 #Route::get('/courses/categories/{category}','CourseController@index')->name('courses');

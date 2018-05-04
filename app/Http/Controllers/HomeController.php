@@ -65,15 +65,14 @@ class HomeController extends Controller
         ->get();
             foreach($cartCourses as $faved){
                 $courseDiscount= $this->getDiscount($faved->id);
-                $faved->discount = $courseDiscount;
+                if($courseDiscount){
+                    $faved->discount = $courseDiscount;
+                }
             }
             $merge = $this->singleMergeData('cart',$cartCourses);
             array_push($content, $merge);
         return $content;
        
-    }
-    private function getTotalPrice($courseId){
-        
     }
 
     private function getDiscount($courseId){
@@ -89,7 +88,7 @@ class HomeController extends Controller
             }
             return $courseDiscount;  
         }else{
-            return $courseDiscount = ['discount' => 'null'];
+            return $courseDiscount = false;
         }
     }
 
@@ -108,6 +107,7 @@ class HomeController extends Controller
         }
         return $course;
     }
+    /*
     private function showTotalPrice($course,$typeDiscount){
         switch($typeDiscount){
             case 1:
@@ -127,7 +127,7 @@ class HomeController extends Controller
         }
         return $course;
     }
-
+*/
     private function carouselDisplay($categories, $numberCourses){
         $plucked = $categories->pluck('category');
         $array = $plucked->all();
