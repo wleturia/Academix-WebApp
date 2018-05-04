@@ -8,49 +8,69 @@ use Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         #DISPLAY COURSES IN CAROUSEL VIEW
         $categoriesToDisplay = $this->callCategories(3);             
         $courses = $this->carouselDisplay($categoriesToDisplay,10);
-        #DISPLAY FAVED COURSES
-        $favedCoursesToDisplay = 10;
-        $userCourses = $this->loadFavedCourses($courses,$favedCoursesToDisplay);
+        #DISPLAY AND PULL FAVED COURSES
+        $courses = $this->loadFavedCourses($courses,10);
 
-
-
-        #return dd($userCourses);
-        #array_push($places, ['hola','hola']);        
-        #return dd($places);
         return view('home')->with('courses',$courses);
     }
 
     private function loadFavedCourses($content,$coursesToLoad){
-        $coursesItem = DB::table('user_courses')
-        ->select('name','courses.description','url', 'image','price')
+        $favedCourses = DB::table('user_courses')
+        ->select('*')
         ->join('courses','user_courses.course_id', '=', 'courses.id')
-        ->where('user_id', '=', Auth::id())
-        ->where('status_id', '=', '1')            
+        ->where('user_courses.user_id', '=', Auth::id())
+        ->where('user_courses.status_id', '=', 1)      
         ->take($coursesToLoad)
         ->get();
-        $merge = $this->singleMergeData('faved',$coursesItem);
+        foreach($favedCourses as $faved){
+            $courseDiscount= $this->getDiscount($faved->id);
+            $faved->discount = $courseDiscount;
+        }
+        $merge = $this->singleMergeData('faved',$favedCourses);
         array_push($content, $merge);
         return $content;
+    }
+    private function getDiscount($courseId){
+        $courseDiscount = DB::table('course_discounts')
+        ->select('price','discount','type_id','init_date','end_date')
+        ->join('courses','courses.id', '=', 'course_discounts.course_id')
+        ->where('courses.id', '=', $courseId)
+        ->get();
+        if($courseDiscount!=null){
+            foreach($courseDiscount as $course){
+                $type= $course->type_id;
+                $showDiscounts= $this->showDiscounts($course,$type);
+            }
+            return $courseDiscount;  
+        }else{
+            return $courseDiscount=['discount' => 'null'];
+        }
+    }
+
+    private function showDiscounts($course,$typeDiscount){
+        switch($typeDiscount){
+            case 1:
+                $discount = $course->price - (($course->price/100) * $course->discount);
+                $discount = number_format((float)$discount, 2, '.', '');
+                $course->discount = $discount;
+            break;
+            default: 
+                $discount = $course->price - (($course->price/100) * $course->discount);
+                $discount = number_format((float)$discount, 2, '.', '');
+                $course->discount = $discount;
+            break;
+        }
+        return $course;
     }
 
     private function carouselDisplay($categories, $numberCourses){

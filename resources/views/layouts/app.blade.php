@@ -90,23 +90,23 @@
 
         .description {
             font-size: .6rem;
-                display: block!important;
-    display: -webkit-box!important;
-    -webkit-line-clamp: 2;
-    -moz-line-clamp: 2;
-    -ms-line-clamp: 2;
-    -o-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -ms-box-orient: vertical;
-    -o-box-orient: vertical;
-    box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    color: #686f7a;
-    max-height: 2rem;
+            display: block!important;
+            display: -webkit-box!important;
+            -webkit-line-clamp: 2;
+            -moz-line-clamp: 2;
+            -ms-line-clamp: 2;
+            -o-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -ms-box-orient: vertical;
+            -o-box-orient: vertical;
+            box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            color: #686f7a;
+            max-height: 2rem;
         }
 
         .course-price {
@@ -150,51 +150,59 @@
             padding: 0;
         }
 
-.btn-options{
-    border-top: 1px solid #ccc;
-    background: #F2F3F5;    
-    display: flex;
-    justify-content: space-between;
-}
-.btn-option{
-    width: 50%;
-    border-radius: 0;
-}
+        .btn-options {
+            border-top: 1px solid #ccc;
+            background: #F2F3F5;
+            display: flex;
+            justify-content: space-between;
+        }
 
-.btn-settings{
-    background: rgba(245,248,250,0.6);
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dashed rgba(0,105,217,0.6);
-}
-.texto{
-    text-transform: uppercase;
-    color: #0069D9;
-    font-weight: bold;
-}
-.config{
-    color: #0069D9;
-    font-size: 1rem;
-}
+        .btn-option {
+            width: 50%;
+            border-radius: 0;
+        }
 
-.progress, .progress-bar{
-    height: .3rem;
-}
+        .btn-settings {
+            background: rgba(245, 248, 250, 0.6);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(0, 105, 217, 0.6);
+        }
 
-.courses-div{
-    display: flex;
-    justify-content: flex-end;
-}
-.courses-div .btn-outline-primary{
-    border-radius: 0;
-}
+        .texto {
+            text-transform: uppercase;
+            color: #0069D9;
+            font-weight: bold;
+        }
 
-.inline-block{
-    display: inline-block;
-    width: 100%;
-}
+        .config {
+            color: #0069D9;
+            font-size: 1rem;
+        }
 
-p { word-break: break-all!important }
+        .progress,
+        .progress-bar {
+            height: .3rem;
+        }
+
+        .courses-div {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .courses-div .btn-outline-primary {
+            border-radius: 0;
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 100%;
+        }
+
+        p {
+            word-break: break-all!important
+        }
+
     </style>
 </head>
 
@@ -229,60 +237,60 @@ p { word-break: break-all!important }
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="courses">
                                 <!-- PROGRESS BAR -->
                                 <ul class="courses-list">
-                                        <li class="dropdown-item p-3">
-                                            <a href="" class="inline-block">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <div class="progress">
-                                                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                              </div>
+                                    <li class="dropdown-item p-3">
+                                        <a href="" class="inline-block">
+                                            <div class="list-course">
+                                                <div class="list-course-img">
+                                                    <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                </div>
+                                                <div class="list-course-detail mx-2">
+                                                    <p class="course-name">COURSE's NAME</p>
+                                                    <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                    <div class="progress">
+                                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </li>
-                                        <hr>
-                                        <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <div class="progress">
-                                                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                              </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <hr>
+                                    <li class="dropdown-item p-3">
+                                        <a href="">
+                                            <div class="list-course">
+                                                <div class="list-course-img">
+                                                    <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                </div>
+                                                <div class="list-course-detail mx-2">
+                                                    <p class="course-name">COURSE's NAME</p>
+                                                    <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                    <div class="progress">
+                                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </li>
-                                        <hr>
-                                        <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <div class="progress">
-                                                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                              </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <hr>
+                                    <li class="dropdown-item p-3">
+                                        <a href="">
+                                            <div class="list-course">
+                                                <div class="list-course-img">
+                                                    <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                </div>
+                                                <div class="list-course-detail mx-2">
+                                                    <p class="course-name">COURSE's NAME</p>
+                                                    <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
+                                                    <div class="progress">
+                                                        <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="btn-options p-0 m-0 courses-div">
-                                            <a href="" class="text-right btn btn-outline-primary">SEE ALL</a>
-                                    </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="btn-options p-0 m-0 courses-div">
+                                    <a href="" class="text-right btn btn-outline-primary">SEE ALL</a>
+                                </div>
                             </div>
                         </li>
                         <li class="nav-item dropdown mx-2">
@@ -292,57 +300,50 @@ p { word-break: break-all!important }
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="love">
                                 <div class="item-wrapper ">
                                     <ul class="courses-list">
+                                        @foreach ($courses as $coursesList) @if(isset($coursesList["faved"])) @foreach($coursesList as $faved) @foreach($faved as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
+                                        <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="">
+                                            <a href="route/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
+                                                        @if(!$course->image==null)
+                                                        <img class="mx-auto d-block" src="{{$course->image}}" alt="" width="50" height="50"> @else
+                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50"> @endif
                                                     </div>
                                                     <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                                <p class="description ">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                            <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
+                                                        <p class="course-name">{{$course->name}}</p>
+                                                    <p class="description ">{{$course->description}}</p>
+                                                        @if(!$course->discount->isEmpty())
+                                                        @foreach($course->discount as $discount)
+                                                        <!-- Add method to create new types of discounts -->
+                                                        <p class="course-price m-1">${{$discount->discount}} <span class="course-discount">${{$discount->price}}</span></p>
                                                         <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
+                                                        @endforeach
+                                                        @else
+                                                        <p class="course-price m-1">${{$discount->price}}</p>
+                                                        <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </a>
                                         </li>
                                         <hr>
+                                        @endforeach @else
                                         <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
-                                                        <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                            <?php $havent = true; ?>
+                                            <p class="text-center">You don't have faved courses yet</p>
                                         </li>
-                                        <hr>
-                                        <li class="dropdown-item p-3">
-                                            <a href="">
-                                                <div class="list-course">
-                                                    <div class="list-course-img">
-                                                        <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50">
-                                                    </div>
-                                                    <div class="list-course-detail mx-2">
-                                                        <p class="course-name">COURSE's NAME</p>
-                                                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit Repellendus accusamus molestias distinctio nemo sapiente voluptas.</p>
-                                                        <p class="course-price m-1">$10.99 <span class="course-discount">$100.00</span></p>
-                                                        <a href="" class="btn btn-outline-primary btn-list">ADD TO CART</a>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        @endif @endforeach @endforeach @endif @endforeach
                                     </ul>
+                                    @if(!isset($havent))
                                     <div class="btn-wrapper p-3 m-0">
                                         <a href="" class="btn btn-primary btn-wish-list">GO TO WISH LIST</a>
                                     </div>
+                                    @else
+                                    <div class="btn-wrapper p-3 m-0">
+                                        <a href="" class="btn btn-primary btn-wish-list">EXPLORE COURSES</a>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </li>
@@ -416,7 +417,7 @@ p { word-break: break-all!important }
                                             Notifications
                                         </div>
                                         <div class="config">
-                                           <a href="">     <i class="fas fa-cog"></i></a>
+                                            <a href="">     <i class="fas fa-cog"></i></a>
                                         </div>
                                     </div>
                                     <ul class="courses-list">
@@ -467,8 +468,8 @@ p { word-break: break-all!important }
                                         <hr>
                                     </ul>
                                     <div class="btn-options p-0 m-0">
-                                            <a href="" class="btn btn-outline-primary btn-option">MARK ALL AS READ</a>
-                                            <a href="" class="btn btn-outline-primary btn-option">SEE ALL</a>
+                                        <a href="" class="btn btn-outline-primary btn-option">MARK ALL AS READ</a>
+                                        <a href="" class="btn btn-outline-primary btn-option">SEE ALL</a>
                                     </div>
                                 </div>
                             </div>
@@ -487,7 +488,7 @@ p { word-break: break-all!important }
                                 <a class="dropdown-item darker-item" href="{{ route('dashboard.instructor') }}">Become an Instructor</a> @else
                                 <a class="dropdown-item" href="{{ route('dashboard.instructor.dashboard') }}">Instructor Dashboard</a> @endif
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('dashboard.instructor.dashboard') }}">Settings</a> @endif                                
+                                <a class="dropdown-item" href="{{ route('dashboard.instructor.dashboard') }}">Settings</a> @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Logout
