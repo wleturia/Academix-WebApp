@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use View;
 
 class CourseController extends Controller
 {
+
+    public function __construct(){
+
+        View::composers([
+            'App\Composers\HomeComposer'  => ['auth/course'] //attaches HomeComposer to home.blade.php
+        ]);
+
+    }
+
     public function show($courseURL){
         #$url = str_slug($course, "-");
         #$text = ucwords(str_replace('-', ' ', $course));

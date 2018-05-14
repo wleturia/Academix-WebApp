@@ -209,7 +209,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Academix') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -241,7 +241,7 @@
                                         @foreach($coursesList as $current) @foreach($current as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
                                         <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="{{ route('showCourse', ['course' => $course->url, 'courses'=>$courses]) }}">
+                                            <a href="/courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
                                                         @if(!$course->image==null)
@@ -295,7 +295,7 @@
                                         @foreach($coursesList as $faved) @foreach($faved as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
                                         <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="courses/{{$course->url}}">
+                                            <a href="/courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
                                                         @if(!$course->image==null)
@@ -355,7 +355,7 @@
                                         @foreach($coursesList as $cart) @foreach($cart as $collection) @if(!$collection->isEmpty()) @foreach($collection as $course)
                                         <!--  -->
                                         <li class="dropdown-item p-3">
-                                            <a href="route/{{$course->url}}">
+                                            <a href="/courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
                                                         @if(!$course->image==null)
