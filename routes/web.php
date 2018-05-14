@@ -26,7 +26,7 @@ Route::get('/dashboard/instructor', 'DashboardController@instructorDashboard')->
 
 
 #My courses Route
-Route::get('/mycourses', 'CourseController@myCourses')->name('showMyCourses');
+Route::get('/mycourses', 'MyCoursesController@myCourses')->name('showMyCourses');
 
 Route::get('/courses/{course}', 'CourseController@show')->name('showCourse');
 

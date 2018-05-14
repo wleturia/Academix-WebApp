@@ -203,6 +203,35 @@
             word-break: break-all!important
         }
 
+.container-fluid{
+    margin: 0!important;
+        background: #505763;
+        color: white;
+        margin: 0 auto;
+        padding-left: 25%!important;
+        padding-right: 25%!important;
+    }
+    
+    .nav-link{
+        display: inline-block;
+        color: white;
+    }
+    .nav-link:active{
+        background: #686f7a;
+        color: white;
+    }
+    .nav-link:visited{
+        background: #686f7a;        
+        color: white;
+    }
+    .nav-link:hover{
+        background: #686f7a;        
+        color: white;
+    }
+
+
+
+
     </style>
 </head>
 <body>
@@ -230,9 +259,7 @@
                         <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
                         <li class="nav-item dropdown mx-2 courses">
-                            <a id="courses" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    My Courses
-                            </a>
+                            <a id="courses" class="nav-link dropdown-toggle" href="{{ url('/mycourses') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Courses</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="courses">
                                 <!-- PROGRESS BAR -->
                                 <ul class="courses-list">
@@ -502,7 +529,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
