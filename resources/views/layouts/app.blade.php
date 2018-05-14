@@ -205,7 +205,6 @@
 
     </style>
 </head>
-
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
