@@ -204,12 +204,8 @@
         }
 
 .container-fluid{
-    margin: 0!important;
         background: #505763;
         color: white;
-        margin: 0 auto;
-        padding-left: 25%!important;
-        padding-right: 25%!important;
     }
     
     .container-fluid .nav-link{
@@ -248,7 +244,9 @@ label{
     text-transform: uppercase;
 }
 
-
+.card{
+    min-height: 320px;
+}
 
     </style>
 </head>

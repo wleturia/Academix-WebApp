@@ -26,7 +26,10 @@ Route::get('/dashboard/instructor', 'DashboardController@instructorDashboard')->
 
 
 #My courses Route
-Route::get('/mycourses', 'MyCoursesController@myCourses')->name('showMyCourses');
+Route::get('/my-courses/all-courses', 'MyCoursesController@myCourses')->name('showMyCourses');
+Route::get('/my-courses/collections', 'MyCoursesController@myCourses')->name('showMyCourses');
+Route::get('/my-courses/wishlist', 'MyCoursesController@myCourses')->name('showMyCourses');
+Route::get('/my-courses/archived', 'MyCoursesController@myCourses')->name('showMyCourses');
 
 Route::get('/courses/{course}', 'CourseController@show')->name('showCourse');
 
