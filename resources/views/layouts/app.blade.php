@@ -212,19 +212,19 @@
         padding-right: 25%!important;
     }
     
-    .nav-link{
+    .container-fluid .nav-link{
         display: inline-block;
         color: white;
     }
-    .nav-link:active{
+    .container-fluid .nav-link:active{
         background: #686f7a;
         color: white;
     }
-    .nav-link:visited{
+    .container-fluid .nav-link:visited{
         background: #686f7a;        
         color: white;
     }
-    .nav-link:hover{
+    .container-fluid .nav-link:hover{
         background: #686f7a;        
         color: white;
     }
