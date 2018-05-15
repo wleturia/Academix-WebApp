@@ -15,9 +15,89 @@
             <a class="nav-link" href="#">Archived</a>
     </nav>
 </div>
-<div class="container">
+<div class="container py-4">
+    <div class="row justify-content-center p-4">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-3 pl-0">
+                                <label for="all-courses">All Courses</label>
+                                <div class="input-group">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>RECENTLY ACCESSED</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                </div>
+                        </div>
+                        <div class="col pl-0">
+                                <label for="collections">Filter by</label>
+                                <div class="input-group">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Categories</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                </div>
+                        </div>
+                        <div class="col pl-0">
+                                <div class="d-flex align-items-end" style="height:100%">                            
+                            <div class="input-group">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Progress</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                          </select>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="col pl-0">
+                                <div class="d-flex align-items-end" style="height:100%">                            
+                            
+                                <div class="input-group">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Instructor</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                </div>
+                            </div>
+                                
+                        </div>
+                        <div class="col-2 pl-0">
+                            <div class="d-flex align-items-end" style="height:100%">                            
+                                    <input type="reset" class="btn btn-outline-primary">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-end" style="height:100%">
+                            <div class="ml-auto">
+                                <div class="input-group">
+
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-search"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="archived" aria-describedby="basic-addon3" placeholder="Search">
+                                </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 @if(!$courseDetail->isEmpty())
                 <div class="card-header">Course Details</div>

@@ -229,6 +229,24 @@
         color: white;
     }
 
+label{
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: .6rem;
+}
+.col-md-10 .col-md-8 select{
+    font-size: .6rem;
+    text-transform: uppercase;
+}
+.col-md-10 .col-md-8 option{
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+.col-md-10 .col-md-8 input[type=reset]{
+    text-transform: uppercase;
+}
 
 
 
