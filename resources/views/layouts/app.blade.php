@@ -225,12 +225,12 @@
         color: white;
     }
 
-label{
-    font-weight: 400;
-    padding: 0;
-    margin: 0;
-    text-transform: uppercase;
-    font-size: .6rem;
+.label-min{
+    font-weight: 400!important;
+    padding: 0!important;
+    margin: 0!important;
+    text-transform: uppercase!important;
+    font-size: .6rem!important;
 }
 .col-md-10 .col-md-8 select{
     font-size: .6rem;

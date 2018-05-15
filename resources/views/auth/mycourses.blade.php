@@ -24,8 +24,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-3 pl-0">
-                            <label for="all-courses">All Courses</label>
+                        <div class="col-3 pl-0 ">
+                            <label for="all-courses" class="label-min">All Courses</label>
                             <div class="input-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                                 <option>RECENTLY ACCESSED</option>
@@ -36,8 +36,8 @@
                                               </select>
                             </div>
                         </div>
-                        <div class="col pl-0">
-                            <label for="collections">Filter by</label>
+                        <div class="col pl-0 ">
+                            <label for="collections " class="label-min">Filter by</label>
                             <div class="input-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                                 <option>Categories</option>
