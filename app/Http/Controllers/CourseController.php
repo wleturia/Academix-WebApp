@@ -38,13 +38,13 @@ class CourseController extends Controller
 
     protected function loadCourse($url){
         $courseDetail = DB::table('courses')
-        ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','courses.url')            
+        ->select('*',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"))            
         ->where('courses.url', '=', (string)$url)->get();
         return $courseDetail;
     }
     protected function loadMyCourse($url){
         $courseDetail = DB::table('courses')
-        ->select('courses.name',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),'courses.description','user_courses.progress','user_courses.user_id','courses.url')
+        ->select('*',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"))
         ->join('user_courses','courses.id', '=', 'user_courses.course_id')
         ->where('courses.url', '=', (string)$url)
         ->where('user_courses.user_id','=', Auth::user()->id)

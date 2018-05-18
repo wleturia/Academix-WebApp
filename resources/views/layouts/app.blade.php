@@ -299,11 +299,12 @@
 .starrating > input:checked ~ label
 { color: #ffca08 ; } /* Set yellow color when star checked */
 
-.starrating > input:hover ~ label
+.starrating:not(.non-hover) > input:hover ~ label
 { color: #ffca08 ;  } /* Set yellow color when star hover */
 
-
-
+.non-hover > label::before{
+    font-size: 1rem!important;
+}
 
 
     </style>
