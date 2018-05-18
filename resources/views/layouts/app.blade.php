@@ -232,21 +232,79 @@
     text-transform: uppercase!important;
     font-size: .6rem!important;
 }
-.col-md-10 .col-md-8 select{
+.label-min select{
     font-size: .6rem;
     text-transform: uppercase;
 }
-.col-md-10 .col-md-8 option{
+.label-min option{
     font-size: .8rem;
     text-transform: uppercase;
 }
-.col-md-10 .col-md-8 input[type=reset]{
+.label-min input[type=reset]{
     text-transform: uppercase;
 }
 
 .card{
     min-height: 320px;
 }
+.course-row{
+    background: #29303B;
+}
+.col-img{
+    background: #0079B2;
+}
+.img-container{
+    max-width: 425px;
+    max-height: 240px;
+}
+
+.img-container img{
+    width: 26rem;
+    height: 15rem;
+}
+.col-description{
+    padding: 0 6% !important ;
+}
+
+.col-description h1{
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+.col-description a{
+    width: 30%;
+}
+.col-description .stars{
+}
+
+
+
+
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before { 
+  content: "\f005"; /* Star */
+  margin: 2px;
+  font-size: 1.5rem;
+  font-family: FontAwesome;
+  display: inline-block; 
+}
+
+.starrating > label
+{
+  //color: #222222; /* Start color when not clicked */
+  //color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  } /* Set yellow color when star hover */
+
+
+
+
 
     </style>
 </head>

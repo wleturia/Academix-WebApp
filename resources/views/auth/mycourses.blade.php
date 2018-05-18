@@ -9,10 +9,10 @@
         <div class="row">
         <div class="col-md-12">
             <nav class="nav nav-pills nav-justified p-1">
-                <a class="nav-link" href="#">All Courses</a>
-                <a class="nav-link" href="#">Collections</a>
-                <a class="nav-link" href="#">Wishlist</a>
-                <a class="nav-link" href="#">Archived</a>
+                <a class="nav-link" href="/my-courses/all-courses">All Courses</a>
+                <a class="nav-link" href="/my-courses/collections">Collections</a>
+                <a class="nav-link" href="/my-courses/wishlist">Wishlist</a>
+                <a class="nav-link" href="/my-courses/archived">Archived</a>
             </nav>
         </div>
     </div>
@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-3 pl-0 ">
                             <label for="all-courses" class="label-min">All Courses</label>
-                            <div class="input-group">
+                            <div class="input-group label-min">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                                 <option>RECENTLY ACCESSED</option>
                                                 <option>2</option>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col pl-0 ">
                             <label for="collections " class="label-min">Filter by</label>
-                            <div class="input-group">
+                            <div class="input-group label-min">
                                 <select class="form-control" id="exampleFormControlSelect1">
                                                 <option>Categories</option>
                                                 <option>2</option>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col pl-0">
                             <div class="d-flex align-items-end" style="height:100%">
-                                <div class="input-group">
+                                <div class="input-group label-min">
                                     <select class="form-control" id="exampleFormControlSelect1">
                                             <option>Progress</option>
                                             <option>2</option>
@@ -64,7 +64,7 @@
                         <div class="col pl-0">
                             <div class="d-flex align-items-end" style="height:100%">
 
-                                <div class="input-group">
+                                <div class="input-group label-min">
                                     <select class="form-control" id="exampleFormControlSelect1">
                                                 <option>Instructor</option>
                                                 <option>2</option>
@@ -77,7 +77,7 @@
 
                         </div>
                         <div class="col-2 pl-0">
-                            <div class="d-flex align-items-end" style="height:100%">
+                            <div class="d-flex align-items-end label-min" style="height:100%">
                                 <input type="reset" class="btn btn-outline-primary">
                             </div>
                         </div>

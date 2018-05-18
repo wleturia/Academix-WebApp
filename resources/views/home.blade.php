@@ -16,7 +16,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{$course->name}}</h5>
                                     <!-- <p class="card-text" style="overflow-y: scroll; max-height: 100px;">{{$course->description}}</p> -->
-                                    <a href="route/{{$course->url}}" class="btn btn-primary">Visit Route!</a>
+                                    <a href="/courses/{{$course->url}}" class="btn btn-primary">Visit Route!</a>
                                 </div>
                             </div>
                         </div>
