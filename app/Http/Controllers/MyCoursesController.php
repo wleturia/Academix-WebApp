@@ -28,7 +28,7 @@ class MyCoursesController extends Controller
         ->where('course_id', $courseId)
         ->where('user_id', Auth::id())
         ->update(['star' => $rating]);
-        return $update;
+        return redirect()->back();
     }
     
 
