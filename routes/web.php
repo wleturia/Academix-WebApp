@@ -33,6 +33,15 @@ Route::get('/my-courses/archived', 'MyCoursesController@myArchived')->name('show
 
 Route::get('/courses/{course}', 'CourseController@show')->name('showCourse');
 
+
+
+#Route::post('/courses/{course}', 'MyCoursesController@rating')->name('rating');
+Route::post('/courses/{course}', 'MyCoursesController@rating');
+
+
+Route::post('star', 'MyCoursesController@rating');
+
+
 Route::get('/courses/{course}/inscribe', 'CourseController@addCourse')->name('courseRegister');
 
 #Route::get('/courses/categories/{category}','CourseController@index')->name('courses');

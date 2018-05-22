@@ -7,7 +7,6 @@ use Auth;
 use DB;
 use View;
 
-
 class MyCoursesController extends Controller
 {
     
@@ -21,6 +20,16 @@ class MyCoursesController extends Controller
     }
 
 
+    public function rating(Request $request, $courseData){
+        $rating = $request->rating;
+        $course = \App\Course::where('url', '=' ,$courseData)->firstOrFail();
+        $courseId = $course->id;
+        $update = DB::table('user_courses')
+        ->where('course_id', $courseId)
+        ->where('user_id', Auth::id())
+        ->update(['star' => $rating]);
+        return $update;
+    }
     
 
     public function myCourses(){

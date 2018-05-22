@@ -346,8 +346,8 @@
                                             <a href="/courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
-                                                        @if(!$course->image==null)
-                                                        <img class="mx-auto d-block" src="{{$course->image}}" alt="" width="50" height="50"> @else
+                                                        @if(isset($course->image))
+                                                        <img class="mx-auto d-block" src="data:image/png;base64,{{ base64_encode($course->image) }}" alt="" width="50" height="50"> @else
                                                         <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50"> @endif
                                                     </div>
                                                     <div class="list-course-detail mx-2">
@@ -400,8 +400,8 @@
                                             <a href="/courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
-                                                        @if(!$course->image==null)
-                                                        <img class="mx-auto d-block" src="{{$course->image}}" alt="" width="50" height="50"> @else
+                                                        @if(isset($course->image))
+                                                        <img class="mx-auto d-block" src="data:image/png;base64,{{ base64_encode($course->image) }}" alt="" width="50" height="50"> @else
                                                         <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50"> @endif
                                                     </div>
                                                     <div class="list-course-detail mx-2">
@@ -460,8 +460,9 @@
                                             <a href="/courses/{{$course->url}}">
                                                 <div class="list-course">
                                                     <div class="list-course-img">
-                                                        @if(!$course->image==null)
-                                                        <img class="mx-auto d-block" src="{{$course->image}}" alt="" width="50" height="50"> @else
+                                                        @if(isset($course->image))
+                                                        <img class="mx-auto d-block" src="data:image/png;base64,{{ base64_encode($course->image) }}" alt="" width="50" height="50"> 
+                                                        @else
                                                         <img class="mx-auto d-block" src="{{ asset('img/not-found.jpg') }}" alt="" width="50" height="50"> @endif
                                                     </div>
                                                     <div class="list-course-detail mx-2">

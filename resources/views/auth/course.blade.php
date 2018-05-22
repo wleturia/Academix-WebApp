@@ -8,7 +8,11 @@
             @foreach($courseDetail as $key => $data)
             <div class="col-md-4 d-flex justify-content-center">
                 <div class="img-container">
+                    @if(isset($data->image))
+                    <img class="card-img-top" src="data:image/png;base64,{{ base64_encode($data->image) }}" height="240" width="425">
+                    @else
                     <img class="card-img-top" src="{{ asset('img/not-found.jpg') }}" width="425" height="240" alt="not found">
+                    @endif
                 </div>
             </div>
             <div class="col-md-8 d-flex flex-column justify-content-start col-description">
@@ -21,13 +25,17 @@
                     </div>
                     <div class="stars d-flex justify-content-start py-3">
                         <!-- STARS -->
-                        <div class="starrating risingstar d-flex flex-row-reverse">
-                            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star"></label>
-                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star"></label>
-                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star"></label>
-                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star"></label>
-                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
+                        <form action="/courses/{{$data->url}}" name="rating" id="myForm" method="post">
+                        @csrf
+                            
+                        <div class="starrating risingstar d-flex flex-row-reverse" onclick="document.getElementById('myForm').submit();">
+                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
                         </div>
+                        </form>
                         <p class="p-2">Rate This Course</p>
                         <!-- END STARS -->
                     </div>
