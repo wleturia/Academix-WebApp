@@ -307,6 +307,43 @@
 }
 
 
+.card-title, .course-description {
+            display: block!important;
+            display: -webkit-box!important;
+            -webkit-line-clamp: 2;
+            -moz-line-clamp: 2;
+            -ms-line-clamp: 2;
+            -o-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -ms-box-orient: vertical;
+            -o-box-orient: vertical;
+            box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        .data-author, .data-title{
+            display: block!important;
+            display: -webkit-box!important;
+            -webkit-line-clamp: 1;
+            -moz-line-clamp: 1;
+            -ms-line-clamp: 1;
+            -o-line-clamp: 1;
+            line-clamp: 1;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -ms-box-orient: vertical;
+            -o-box-orient: vertical;
+            box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+
     </style>
 </head>
 <body>

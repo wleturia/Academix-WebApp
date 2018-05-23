@@ -37,9 +37,22 @@ class CourseController extends Controller
     }
 
     protected function loadCourse($url){
+        $idCourse =\App\Course::where('url', '=', $url)->first();
+        $idCourse = $idCourse->id;
         $courseDetail = DB::table('courses')
-        ->select('*',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"))            
+        ->select('*',DB::raw("(SELECT users.name FROM users WHERE courses.author_id = users.id) as author"),
+        DB::raw("(SELECT COUNT(user_courses.star) FROM user_courses WHERE user_courses.course_id = $idCourse) as voted"),
+        DB::raw("(SELECT AVG(user_courses.star) FROM user_courses WHERE user_courses.course_id = $idCourse) as punctuation"),
+        DB::raw("(SELECT COUNT(*) FROM user_courses WHERE user_courses.course_id = $idCourse) as students"))
+        #SELECT COUNT(*) FROM `user_courses` WHERE user_courses.course_id = 81
         ->where('courses.url', '=', (string)$url)->get();
+        #$result = $a->merge($b);
+
+        #SELECT COUNT(user_courses.star) as students, AVG(user_courses.star) as puntuation FROM user_courses WHERE user_courses.course_id = 1s
+ #, (SELECT COUNT(user_courses.star) as students
+    #DB::raw("(SELECT COUNT(user_courses.star) as students, AVG(user_courses.star) as puntuation FROM user_courses WHERE user_courses.course_id = 1) as punctuation)"))            
+
+
         return $courseDetail;
     }
     protected function loadMyCourse($url){
