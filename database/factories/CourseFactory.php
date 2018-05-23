@@ -11,7 +11,7 @@ use App\Category;
 $factory->define(App\Course::class, function (Faker $faker) {
     return [
         #'name' => $faker->unique()->sentence($nbWords = 6, $variableNbWords = true) ,
-        'name' => $faker->unique()->catchPhrase,
+        'name' => $faker->catchPhrase,
         'url' => $faker->unique()->slug,
         'description' => $faker->paragraph,
         'author_id' => function(){

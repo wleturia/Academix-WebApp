@@ -19,7 +19,7 @@ class CreateCourseItemsTable extends Migration
             $table->integer('item_status')->nullable()->unsigned();
             $table->foreign('item_status')->references('id')->on('course_item_statuses')->onDelete('cascade');
             $table->integer('item_type')->unsigned();
-            $table->foreign('item_type')->references('id')->on('course_items_types')->onDelete('cascade');
+            $table->foreign('item_type')->references('id')->on('course_item_types')->onDelete('cascade');
             $table->integer('course_chapter')->unsigned();
             $table->foreign('course_chapter')->references('id')->on('course_chapters')->onDelete('cascade');
             $table->binary('media_content')->nullable(); # <img src="data:image/jpeg;base64,'.base64_encode( $imageBlob ).'"/>
