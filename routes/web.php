@@ -33,6 +33,13 @@ Route::get('/my-courses/archived', 'MyCoursesController@myArchived')->name('show
 
 Route::get('/courses/{course}', 'CourseController@show')->name('showCourse');
 
+#ADD COURSE
+Route::get('/courses/{course}/enroll', 'CourseController@enrollCourse')->name('enrollCourse');
+
+
+#COURSE ADMINISTRATION
+Route::get('/courses/{course}/dashboard', 'CourseController@show')->name('addCourse');
+
 
 
 #Route::post('/courses/{course}', 'MyCoursesController@rating')->name('rating');

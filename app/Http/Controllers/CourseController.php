@@ -76,4 +76,44 @@ class CourseController extends Controller
         }
     }
 
+    public function enrollCourse($courseUrl){
+        #AÑADIR EL CURSO CON ESTADO,
+            #GET COURSE ID
+            $courseId = $this->getCourseId($courseUrl);
+            #GET USER ID
+            $userId = Auth::user()->id;
+            #SELECT STATUS CURRENT
+            $statusId = $this->getStatusId('current');
+            #INSERT INTO DB TABLE
+                #VALIDATE
+                $userCourse = \App\UserCourse::where('user_id', '=', $userId)->where('course_id', '=', $courseId)->first();
+                if(isset($userCourse)){
+                    $userCourse->status_id = $status;
+                    $userCourse->progress = 0;
+                    $userCourse->save();
+                }
+                else{
+                    #IF THERE'S NO RECORD - INSERT
+                    $userCourse = new \App\UserCourse;
+                    $userCourse->user_id = $userId;
+                    $userCourse->course_id = $courseId;
+                    $userCourse->status_id = $statusId;
+                    #SETTING PROGRESS TO 0
+                    $userCourse->progress = 0;
+                    $userCourse->save();
+                }
+        return redirect()->back();                
+    }
+
+    protected function getCourseId($courseUrl){
+        $courseId =\App\Course::where('url', '=', $courseUrl)->first();
+        $courseId = $courseId->id;
+        return $courseId;
+    }
+
+    protected function getStatusId($status){
+        $status = \App\UserCourseStatus::where('status', '=', $status)->first();
+        $status = $status->id;
+        return $status;     
+    }
 }

@@ -14,33 +14,44 @@
                 </div>
             </div>
             <div class="col-md-8 d-flex flex-column justify-content-start col-description">
-                <div class="title">
+                <div class="title py-1">
                     <h1 class="pt-2 data-title" title="{{$data->name}}">{{$data->name}}</h1>
                 </div>                
                 @if(isset($data->progress))
-                <div class="button">
+                <div class="button py-2">
                     <a href="" class="btn btn-primary py-2">Continue to Lecture 5</a>
                 </div>
-                <div class="stars d-flex justify-content-start py-3">
+                <div class="stars d-flex justify-content-start py-2 pl-0">
                     <!-- STARS -->
-                    <form action="/courses/{{$data->url}}" name="rating" id="myForm" method="post">
-                        @csrf @if(isset($data->star))
-                        <div class="starrating risingstar d-flex flex-row-reverse" onclick="courseRatedAlert();" style="pointer-events:none;">
-                            @else
-                            <div class="starrating risingstar d-flex flex-row-reverse" onclick="document.getElementById('myForm').submit();">
-                                @endif @for($i = 5; $i > 0 ; $i--) @if($i == $data->star)
-                                <input type="radio" id="star<?php echo $i; ?>" name="rating" value="<?php echo $i; ?>" checked/><label for="star<?php echo $i; ?>" title="<?php echo $i; ?> star"></label> @else
-                                <input type="radio" id="star<?php echo $i; ?>" name="rating" value="<?php echo $i; ?>" /><label for="star<?php echo $i; ?>" title="<?php echo $i; ?> star"></label> @endif @endfor
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                                <form action="/courses/{{$data->url}}" name="rating" id="myForm" method="post">
+                                    @csrf 
+                                    @if(isset($data->star))
+                                        <div class="starrating risingstar d-flex flex-row-reverse" onclick="courseRatedAlert();" style="pointer-events:none;">
+                                    @else
+                                        <div class="starrating risingstar d-flex flex-row-reverse" onclick="document.getElementById('myForm').submit();">
+                                    @endif 
+                                            @for($i = 5; $i > 0 ; $i--) 
+                                                @if($i == $data->star)
+                                                    <input type="radio" id="star<?php echo $i; ?>" name="rating" value="<?php echo $i; ?>" checked/><label for="star<?php echo $i; ?>" title="<?php echo $i; ?> star"></label>
+                                                @else
+                                                    <input type="radio" id="star<?php echo $i; ?>" name="rating" value="<?php echo $i; ?>" /><label for="star<?php echo $i; ?>" title="<?php echo $i; ?> star"></label> 
+                                                @endif 
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </form>
                         </div>
-                    </form>
-                    @if(isset($data->star))
-                    <p class="p-2">You've already rated this course!</p>
-                    @else
-                    <p class="p-2">Rate This Course</p>
-                    @endif
-                </div>
-                <div>
+                        <div class="col">
+                            @if(isset($data->star))
+                                <p class="p-2">You've already rated this course! <small><a href="" class="px-2">Modify</a></small></p>
+                            @else
+                                <p class="p-2">Rate This Course</p>
+                            @endif
+                        </div>
+                    </div>
+                <div class="pl-1">
                     <p>4 of 24 items complete <a href="" class="px-3">Reset Progress</a></p>
                     <div class="progress">
                         <div class="progress-bar" style="width:10%"></div>
@@ -64,7 +75,7 @@
                     <p class="data-author"><span class="pr-2">Created by {{$data->author}}</span> <span class="px-2">Last updated {{date('Y-m',strtotime($data->updated_at))}}</span> <span class="px-2">English</span> <span class="px-2">Spanish [auto-generated]</span></p>
                 </div>
                 <div class="button">
-                    <a href="" class="btn btn-primary py-2">Enroll Now</a>
+                    <a href="{{route('enrollCourse',['course' => $data->url])}}" class="btn btn-primary py-2">Enroll Now</a>
                 </div>
                 @endif
             </div>
